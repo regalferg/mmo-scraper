@@ -4,11 +4,31 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var mongoose = require("mongoose");
+var cheerio = require("cheerio");
+var axios = require("axios");
 var index = require('./routes/index');
-var users = require('./routes/users');
+var scrape = require('./routes/scrape');
+var articles = require('./routes/article-route');
+// Require all models
+var db = require("./models");
 
+var PORT = 3000;
 var app = express();
+
+// Database configuration
+// var databaseUrl = "mmo_scraper";
+// var collections = ["scrapedData"];
+
+// var db = mongojs(databaseUrl, collections);
+// db.on("error", function(error) {
+//   console.log("Database Error:", error);
+// });
+mongoose.Promise = Promise;
+mongoose.connect("mongodb://localhost/mmo_scraper", {
+ 
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,8 +43,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/users', users);
-
+app.use('/scraper', scrape);
+app.use('/articles', articles);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
