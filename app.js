@@ -10,6 +10,8 @@ var axios = require("axios");
 var index = require('./routes/index');
 var scrape = require('./routes/scrape');
 var articles = require('./routes/article-route');
+var saved = require('./routes/saved-route');
+
 // Require all models
 var db = require("./models");
 
@@ -43,8 +45,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/saved', saved);
 app.use('/scraper', scrape);
 app.use('/articles', articles);
+app.use('/saved', saved);
+app.use('/remove', saved);
+app.use('/add', index);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
