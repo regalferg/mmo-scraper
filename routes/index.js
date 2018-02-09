@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
         // If we were able to successfully find Articles, send them back to the client
         // res.json(dbArticle);
         res.render("index",{
-          title: 'Express',
+          title: 'MMO Scraper',
           dbArticle:dbArticle
         })
         // console.log(dbArticle);
