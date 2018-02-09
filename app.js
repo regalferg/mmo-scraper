@@ -26,10 +26,19 @@ var app = express();
 // db.on("error", function(error) {
 //   console.log("Database Error:", error);
 // });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mmo_scraper";
+
+// Set mongoose to leverage built in JavaScript ES6 Promises
+// Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/mmo_scraper", {
- 
+mongoose.connect(MONGODB_URI, {
+  useMongoClient: true
 });
+
+// mongoose.Promise = Promise;
+// mongoose.connect("mongodb://localhost/mmo_scraper", {
+ 
+// });
 
 
 // view engine setup
@@ -45,12 +54,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+// app.use('/remove', saved);
 app.use('/saved', saved);
 app.use('/scraper', scrape);
 app.use('/articles', articles);
-app.use('/saved', saved);
-app.use('/remove', saved);
-app.use('/add', index);
+//Try in morning app.use('/add', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

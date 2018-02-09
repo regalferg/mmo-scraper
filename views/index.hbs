@@ -10,7 +10,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">Menu</a>
+  <a class="navbar-brand" >MMO Scraper</a>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -51,12 +51,12 @@
 
     <div id="wrapper">
       <h1>Ha Ha No MMOs Here</h1>
-      <h2><i>Hack News Scraper: Learn Something f00!</i></h2>
+      <h2><i>Hacker News Scraper: Learn Something f00!</i></h2>
       <div id="articles"></div>
           {{#each dbArticle}}
          <div class="card" id="post">
                      <div class="card-block">
-                       <span id="post-body">{{title}}</span><a href="#" class="btn btn-primary savez" data-id="{{_id}}">Save Article</a>
+                       <span id="post-body">{{title}}</span><a href="#" class="btn btn-primary savez" data-id="{{_id}}" onclick="window.location.reload();">Save Article</a>
                         <br>
                         <a href="#" id="postername">{{link}}</a><span id="says"> </span>
                         

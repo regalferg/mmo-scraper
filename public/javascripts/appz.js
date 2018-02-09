@@ -77,18 +77,23 @@
   $(".deletez").click(function() {
     console.log("Testing");
     // Empty the notes from the note section
-   
+  //  debugger;
     // Save the id from the p tag
     var thisId = $(this).attr("data-id");
   
     // Now make an ajax call for the Article
     $.ajax({
       method: "POST",
-      url: "/remove/" + thisId
+      url: "/saved/remove/" + thisId
     })
       // With that done, add the note information to the page
       .then(function(data) {
+      
         // console.log(data);
      
+      }) .catch(function(err) {
+        // debugger
+        // If an error occurred, send it to the client
+        res.json(err);
       });
   });

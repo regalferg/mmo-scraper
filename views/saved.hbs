@@ -37,7 +37,7 @@
           {{#each dbArticle}}
          <div class="card" id="post">
                      <div class="card-block">
-                       <span id="post-body">{{title}}</span>><button type="button" class="btn btn-primary deletez" data-id="{{_id}}">Delete Article</button>
+                       <span id="post-body">{{title}}</span>><button type="button" class="btn btn-primary deletez" data-id="{{_id}}" onclick="window.location.reload();">Delete Article</button>
                        <button type="button"  class="btn btn-primary notez "data-id="{{_id}}" data-toggle="modal" data-target="#notesModal">Notes</button
                         <br>
                         <br>

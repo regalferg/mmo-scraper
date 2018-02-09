@@ -26,10 +26,11 @@ router.get("/", function(req, res,) {
  
     // Route for getting all Articles from the db
 router.post("/remove/:id", function(req, res) {
+  console.log("Nothing");
   // Grab every document in the Articles collection
   db.Article.update({
     _id:req.params.id
-  },{$set:{saved:true}})
+  },{$set:{saved:false}})
     .then(function(dbArticle) {
       console.log("Saved");
       })
