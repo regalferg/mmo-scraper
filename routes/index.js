@@ -1,11 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var db = require("../models");
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
-
 
 
 // Route for getting all Articles from the db
@@ -15,9 +10,7 @@ router.get("/", function(req, res) {
       saved:false
     })
       .then(function(dbArticle) {
-        // If we were able to successfully find Articles, send them back to the client
-        // res.json(dbArticle);
-        res.render("index",{
+          res.render("index",{
           title: 'MMO Scraper',
           dbArticle:dbArticle
         })

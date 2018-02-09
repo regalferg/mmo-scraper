@@ -4,23 +4,16 @@ var app = require("../app")
 var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("../models");
-// /* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
 
 
-
-// A GET route for scraping the echojs website
+// A GET route for scraping the ycombinator website
 router.get("/", function(req, res, next) {
   console.log("Test Scrape");
-  // First, we grab the body of the html with request
+
   axios.get("https://news.ycombinator.com/").then(function(response) {
-    // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
 
-    // Now, we grab every h2 within an article tag, and do the following:
-    $("td.title").each(function(i, element) {
+      $("td.title").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
@@ -44,7 +37,7 @@ router.get("/", function(req, res, next) {
         });
     });
 
-    // If we were able to successfully scrape and save an Article, send a message to the client
+
     res.send("Scrape Complete");
   });
 });

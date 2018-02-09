@@ -1,14 +1,6 @@
-// // Grab the articles as a json
-// $.getJSON("/articles", function(data) {
-//     // For each one
-//     for (var i = 0; i < data.length; i++) {
-//       // Display the apropos information on the page
-//       $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-//     }
-//   });
-  console.log("Test");
+
   
-  // Whenever someone clicks a p tag
+  // Note button
   $(".notez").click(function() {
     console.log("Testing");
     // Empty the notes from the note section
@@ -73,12 +65,11 @@
   });
   
 
-  // Whenever someone clicks a p tag
+  // Delets article from page and display back on Home page
   $(".deletez").click(function() {
     console.log("Testing");
     // Empty the notes from the note section
   //  debugger;
-    // Save the id from the p tag
     var thisId = $(this).attr("data-id");
   
     // Now make an ajax call for the Article

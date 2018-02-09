@@ -19,13 +19,7 @@ var PORT = 3000;
 var app = express();
 
 // Database configuration
-// var databaseUrl = "mmo_scraper";
-// var collections = ["scrapedData"];
 
-// var db = mongojs(databaseUrl, collections);
-// db.on("error", function(error) {
-//   console.log("Database Error:", error);
-// });
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mmo_scraper";
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
@@ -34,11 +28,6 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
-
-// mongoose.Promise = Promise;
-// mongoose.connect("mongodb://localhost/mmo_scraper", {
- 
-// });
 
 
 // view engine setup
